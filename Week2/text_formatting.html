@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Text Formatting</title>
+  </head>
+  <body>
+    <!-- 
+							HEADER TAGS
+
+
+        Header Tags are elements allow you to specify that certain parts of your content are headings — or subheadings.
+    -->
+
+    <h1>Header One</h1>
+    <h2>Header Two</h2>
+    <h3>Header Three</h3>
+    <h4>Header Four</h4>
+    <h5>Header Five</h5>
+    <h6>Header Six</h6>
+
+    <p>We are West Africa's largest and most popular web hosting provider, supporting businesses, enterprises and individuals for the past 12 years and counting.</p>
+
+    <pre>
+       def get_user_data(user_uid, userRole):
+    """ This is a function that get the user data """
+
+    if not user_uid and not userRole:
+        return None
+
+    redis_key = f'Fetched_data/{userRole}/{user_uid}'
+    current_app.logger.info(f"Querying Redis with key: {redis_key}")
+
+    try:
+        # Check if key exists
+        if not current_app.redis_client.exists(redis_key):
+            current_app.logger.error(f"Key does not exist in Redis: {redis_key}")
+            return None
+
+        # Check cache for user data
+        user_data = current_app.redis_client.get(redis_key)
+
+        if user_data is not None:
+            current_app.logger.info(f"Raw UserData from Redis: {user_data} (Type: {type(user_data)})")
+            return json.loads(user_data)
+        else:
+            current_app.logger.info("User data not found in Redis.")
+            return None
+    except Exception as e:
+        print(f"Exception Error from Fetching data at Redis: {e}")
+        return None
+
+    </pre>
+
+   <h1 align="left">DEMO Exercise</h1>
+   <h1 align="center">DEMO Exercise</h1>
+   <h1 align="right">DEMO Exercise</h1>
+
+  <p><b>Starting us off is Smashing Magazine.</b> It’s <strong>not often that you find  publication</strong> that can put <em>out as many high-quality articles as</em> 
+     consistently <i>as Smashing can.</i> Some <del>places publish lots of articles that have very</del> little substance, 
+     <ins>but these guys make sure that pretty much</ins> every word <mark>they publish is relevant to you as a designer and developer.</mark> 
+     Recently, <sup>they’ve launched</sup> live workshops <sub>on front-end and UX,</sub> too.</p>
+
+
+   <p> 20<sup>th</sup> Of Febuary, 2025</p>
+  </body>
+</html>
+-
